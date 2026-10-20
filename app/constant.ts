@@ -38,6 +38,8 @@ export const SILICONFLOW_BASE_URL = "https://api.siliconflow.cn";
 
 export const AI302_BASE_URL = "https://api.302.ai";
 
+export const RUNWARE_BASE_URL = "https://api.runware.ai/v1";
+
 export const CACHE_URL_PREFIX = "/api/cache";
 export const UPLOAD_URL = `${CACHE_URL_PREFIX}/upload`;
 
@@ -75,6 +77,7 @@ export enum ApiPath {
   DeepSeek = "/api/deepseek",
   SiliconFlow = "/api/siliconflow",
   "302.AI" = "/api/302ai",
+  Runware = "/api/runware",
 }
 
 export enum SlotID {
@@ -134,6 +137,7 @@ export enum ServiceProvider {
   DeepSeek = "DeepSeek",
   SiliconFlow = "SiliconFlow",
   "302.AI" = "302.AI",
+  Runware = "Runware",
 }
 
 // Google API safety settings, see https://ai.google.dev/gemini-api/docs/safety-settings
@@ -161,6 +165,7 @@ export enum ModelProvider {
   DeepSeek = "DeepSeek",
   SiliconFlow = "SiliconFlow",
   "302.AI" = "302.AI",
+  Runware = "Runware",
 }
 
 export const Stability = {
@@ -276,6 +281,12 @@ export const AI302 = {
   ChatPath: "v1/chat/completions",
   EmbeddingsPath: "jina/v1/embeddings",
   ListModelPath: "v1/models?llm=1",
+};
+
+export const Runware = {
+  ExampleEndpoint: RUNWARE_BASE_URL,
+  ChatPath: "chat/completions",
+  ListModelPath: "models",
 };
 
 export const DEFAULT_INPUT_TEMPLATE = `{{input}}`; // input / time / model / lang
@@ -717,6 +728,23 @@ const siliconflowModels = [
   "Pro/deepseek-ai/DeepSeek-V3",
 ];
 
+const runwareModels = [
+  "openai-gpt-5",
+  "openai-gpt-5-mini",
+  "openai-gpt-5-nano",
+  "anthropic-claude-sonnet-4-6",
+  "anthropic-claude-haiku-4-5",
+  "google-gemini-3-1-pro",
+  "google-gemini-3-flash",
+  "deepseek-v4-pro",
+  "deepseek-v4-flash",
+  "xai-grok-4-3",
+  "moonshotai-kimi-k2-6",
+  "zai-glm-5-2",
+  "qwen3.5-9b",
+  "minimax-m3",
+];
+
 const ai302Models = [
   "deepseek-chat",
   "gpt-4o",
@@ -907,6 +935,17 @@ export const DEFAULT_MODELS = [
       providerName: "302.AI",
       providerType: "ai302",
       sorted: 15,
+    },
+  })),
+  ...runwareModels.map((name) => ({
+    name,
+    available: true,
+    sorted: seq++,
+    provider: {
+      id: "runware",
+      providerName: "Runware",
+      providerType: "runware",
+      sorted: 16,
     },
   })),
 ] as const;

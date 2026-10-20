@@ -490,6 +490,17 @@ const en: LocaleType = {
           SubTitle: "Example: ",
         },
       },
+      Runware: {
+        ApiKey: {
+          Title: "Runware API Key",
+          SubTitle: "Use a custom Runware API Key",
+          Placeholder: "Runware API Key",
+        },
+        Endpoint: {
+          Title: "Endpoint Address",
+          SubTitle: "Example: ",
+        },
+      },
       Stability: {
         ApiKey: {
           Title: "Stability API Key",

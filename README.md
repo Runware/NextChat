@@ -375,6 +375,14 @@ SiliconFlow API URL.
 
 302.AI API URL.
 
+### `RUNWARE_API_KEY` (optional)
+
+Runware API Key.
+
+### `RUNWARE_URL` (optional)
+
+Runware API URL.
+
 ## Requirements
 
 NodeJS >= 18, Docker >= 20
