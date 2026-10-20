@@ -37,11 +37,12 @@ describe("getTimeoutMSByModel", () => {
 });
 
 describe("showPlugins", () => {
-  test("is enabled for OpenAI, Azure, Moonshot and ChatGLM", () => {
+  test("is enabled for OpenAI, Azure, Moonshot, ChatGLM and Runware", () => {
     expect(showPlugins(ServiceProvider.OpenAI, "gpt-4")).toBe(true);
     expect(showPlugins(ServiceProvider.Azure, "gpt-4")).toBe(true);
     expect(showPlugins(ServiceProvider.Moonshot, "moonshot-v1-8k")).toBe(true);
     expect(showPlugins(ServiceProvider.ChatGLM, "glm-4")).toBe(true);
+    expect(showPlugins(ServiceProvider.Runware, "openai-gpt-5")).toBe(true);
   });
 
   test("is enabled for Anthropic except claude-2 models", () => {

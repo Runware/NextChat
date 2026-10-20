@@ -505,6 +505,17 @@ const cn = {
           SubTitle: "样例：",
         },
       },
+      Runware: {
+        ApiKey: {
+          Title: "接口密钥",
+          SubTitle: "使用自定义 Runware API Key",
+          Placeholder: "Runware API Key",
+        },
+        Endpoint: {
+          Title: "接口地址",
+          SubTitle: "样例：",
+        },
+      },
       Stability: {
         ApiKey: {
           Title: "接口密钥",

@@ -240,6 +240,14 @@ ByteDance モードでは、`modelName@bytedance=deploymentName` 形式でモデ
 
 302.AI API の URL.
 
+### `RUNWARE_API_KEY` （オプション）
+
+Runware API キー.
+
+### `RUNWARE_URL` （オプション）
+
+Runware API の URL.
+
 ## 開発
 
 下のボタンをクリックして二次開発を開始してください：

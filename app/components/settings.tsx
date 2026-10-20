@@ -76,6 +76,7 @@ import {
   DeepSeek,
   SiliconFlow,
   AI302,
+  Runware,
 } from "../constant";
 import { Prompt, SearchService, usePromptStore } from "../store/prompt";
 import { ErrorBoundary } from "./error";
@@ -1459,6 +1460,47 @@ export function Settings() {
     </>
   );
 
+  const runwareConfigComponent = accessStore.provider ===
+    ServiceProvider.Runware && (
+    <>
+      <ListItem
+        title={Locale.Settings.Access.Runware.Endpoint.Title}
+        subTitle={
+          Locale.Settings.Access.Runware.Endpoint.SubTitle +
+          Runware.ExampleEndpoint
+        }
+      >
+        <input
+          aria-label={Locale.Settings.Access.Runware.Endpoint.Title}
+          type="text"
+          value={accessStore.runwareUrl}
+          placeholder={Runware.ExampleEndpoint}
+          onChange={(e) =>
+            accessStore.update(
+              (access) => (access.runwareUrl = e.currentTarget.value),
+            )
+          }
+        ></input>
+      </ListItem>
+      <ListItem
+        title={Locale.Settings.Access.Runware.ApiKey.Title}
+        subTitle={Locale.Settings.Access.Runware.ApiKey.SubTitle}
+      >
+        <PasswordInput
+          aria-label={Locale.Settings.Access.Runware.ApiKey.Title}
+          value={accessStore.runwareApiKey}
+          type="text"
+          placeholder={Locale.Settings.Access.Runware.ApiKey.Placeholder}
+          onChange={(e) => {
+            accessStore.update(
+              (access) => (access.runwareApiKey = e.currentTarget.value),
+            );
+          }}
+        />
+      </ListItem>
+    </>
+  );
+
   const ai302ConfigComponent = accessStore.provider === ServiceProvider["302.AI"] && (
     <>
       <ListItem
@@ -1864,6 +1906,7 @@ export function Settings() {
                   {chatglmConfigComponent}
                   {siliconflowConfigComponent}
                   {ai302ConfigComponent}
+                  {runwareConfigComponent}
                 </>
               )}
             </>
